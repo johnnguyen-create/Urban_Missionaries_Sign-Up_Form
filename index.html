@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Registration</title>
+    <style>
+    {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Center and scale the top logo */
+.form-logo {
+    display: block;        /* Enables block-level centering capabilities */
+    margin: 0 auto 24px;   /* Center horizontally, append 24px spacing below */
+    max-width: 220px;      /* Restricts maximum width size on desktop monitors */
+    height: auto;          /* Main proportions cleanly intact without distortion */
+    object-fit: contain;   /* Prevents stretching inside frame boxes */
+}
+
+/* Adjust heading padding balance */
+.form-header h1 {
+    color: #00775a;
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+body {
+    background-color: #ebf8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Center Form Card Wrapper */
+.form-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    padding: 50px 60px;
+    border-radius: 4px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* Header & Accent Colors */
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-placeholder {
+    font-weight: 800;
+    font-size: 24px;
+    color: #002d62;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.form-header h2 {
+    font-weight: 800;
+    font-size: 24px;
+    color: #002d62;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.form-header h1 {
+    color: #00775a; /* Matching deep green title */
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* Form Input Layout Blocks */
+.form-group {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 15px;
+    color: #718096;
+    margin-bottom: 8px;
+}
+
+.required {
+    color: #e53e3e;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #2d3748;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3182ce;
+}
+
+/* Input Fields Text Placeholders */
+.form-group input::placeholder {
+    color: #a0aec0;
+}
+
+/* Informational Helper Blocks */
+.helper-text {
+    font-size: 15px;
+    color: #4a5568;
+    margin-bottom: 12px;
+}
+
+.helper-group {
+    margin-top: 30px;
+}
+
+/* Left Aligned Action Buttons */
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+
+#submitBtn {
+    background-color: #0076f6; /* Matching solid blue accent */
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#submitBtn:hover {
+    background-color: #005ec3;
+}
+
+/* Native UI Error Validations */
+.error-message {
+    color: #e53e3e;
+    font-size: 13px;
+    margin-top: 5px;
+    display: none;
+}
+
+.form-group.invalid input {
+    border-color: #e53e3e;
+    background-color: #fff5f5;
+}
+
+.form-group.invalid .error-message {
+    display: block;
+}
+
+/* Custom conditional entry animation styles */
+.conditional-box {
+    margin-top: 16px;
+    animation: fadeInField 0.3s ease-in-out;
+}
+
+@keyframes fadeInField {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>       
+</head>
+
+<body>
+
+ <form action="https://api.sheetmonkey.io/form/kqbwQRNxRaMoLvtzCHgQdJ" method="POST" id="conferenceForm">
+
+    <div class="form-container">
+        <header class="form-header">
+           <!-- Insert your logo image file here -->
+             <img src="https://i.postimg.cc/tT5jsP9b/Cross-logo-with-TM.png" alt="Company Logo" class="form-logo">
+            <div class="logo-placeholder">URBAN MISSIONARIES <h2>OF OUR LADY OF HOPE</h2></div>
+            <h1>Sign In</h1>
+        </header>
+            <!-- Row 1: Names -->
+<div class="form-row">
+        <div class="form-group" id="firstNameGroup">
+                    <label for="firstName">First Name <span class="required">*</span></label>
+                    <input type="text" id="firstName" name="First Name" placeholder="First Name" required>
+                    <span class="error-message">First name is required.</span>
+                </div>
+                <div class="form-group" id="lastNameGroup">
+                    <label for="lastName">Last Name <span class="required">*</span></label>
+                    <input type="text" id="lastName" name="Last Name" placeholder="Last Name" required>
+                    <span class="error-message">Last name is required.</span>
+                </div>
+    </div>
+
+            <!-- Row 2: Contact Info -->
+            <!-- Row 2: Contact Options (Either/Or Requirement) -->
+            <p class="helper-text">Please provide at least one contact method (Email or Phone Number). <span class="required">*</span></p>
+            <div class="form-row">
+                <div class="form-group" id="emailGroup">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="Email Address" placeholder="Email Address">
+                    <span class="error-message">You must enter either an Email or a Phone Number.</span>
+                </div>
+                <div class="form-group" id="phoneGroup">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="Phone Number" placeholder="###-###-####">
+                    <span class="error-message">You must enter either an Email or a Phone Number.</span>
+                </div>
+            </div>
+
+            <!-- Row 3: Professional Details -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="organization"> Organization (Optional) <span class="option"></span></label>
+                    <input type="text" id="organization" name="Organization" placeholder="e.g., Company, School, or Association" option>
+                </div>
+                
+            <!-- Row 4: Conference Selections (Dropdowns) -->
+                       <!-- Multi-Choice Volunteer Selection Block -->
+<div class="form-group" id="volunteerGroup">
+    <label class="group-label">Volunteer Choices (Select all that apply) <span class="required">*</span></label>
+    
+    <div class="checkbox-grid">
+        <label class="checkbox-item">
+            <input type="checkbox" name="Volunteer Selection" value="Christmas Program" class="volunteer-box">
+            <span>Christmas Program</span>
+        </label>
+        
+ <div class="checkbox-grid">
+        
+        <label class="checkbox-item">
+            <input type="checkbox" name="Volunteer Selection" value="garden of hope" class="volunteer-box">
+            <span>Garden of Hope</span>
+        </label>
+        
+        
+        <label class="checkbox-item">
+            <input type="checkbox" name="Volunteer Selection" value="threads of hope" class="volunteer-box">
+            <span>Threads of Hope</span>
+        </label>
+
+
+        <label class="checkbox-item">
+            <input type="checkbox" name="Volunteer Selection" value="facilities" class="volunteer-box">
+            <span>Facilities</span>
+        </label>
+
+        
+        <label class="checkbox-item">
+            <input type="checkbox" name="Volunteer Selection" value="social media" class="volunteer-box">
+            <span>Social Media</span>
+        </label>
+
+        
+        <label class="checkbox-item">
+            <input type="checkbox" name="Volunteer Selection" value="rosary" class="volunteer-box">
+            <span>Rosary</span>
+        </label>
+
+        <label class="checkbox-item">
+            <input type="checkbox" name="Volunteer Selection" value="Food Pantry" class="volunteer-box">
+            <span>Food Pantry</span>
+        </label>
+
+        <label class="checkbox-item">
+            <input type="checkbox" name="Volunteer Selection" value="Other" id="otherCheckbox" class="volunteer-box">
+            <span>Other (Please specify)</span>
+        </label>
+        <div id="conditionalInputGroup" hidden >
+                        <label for="otherVolunteerDetails" style="display: block; margin: 10px 0 5px; color: #4a5568;">
+                            Please specify <spam class="required"> <span style="color: red;">*</span>
+                        </label>
+                        <input type="text" id="otherVolunteerDetails" name="Other Specification Details" class="form-group" placeholder="Tell us how you would like to help...">
+                    
+                </div>
+    </div>
+    <span class="error-message" id="volunteerError">Please select at least one option.</span>
+</div>
+
+          <div id="conditionalInputGroup" hidden >
+                        <label for="otherVolunteerDetails" style="display: block; margin: 10px 0 5px; color: #4a5568;">
+                            Please specify <spam class="required"> <span style="color: red;">*</span>
+                        </label>
+                        <input type="text" id="otherVolunteerDetails" name="Other Specification Details" class="form-group" placeholder="Tell us how you would like to help...">
+                    
+                </div>
+
+<div class="form-group" style="margin-top: 20px;">
+                <label for="comments">Additional Notes / Comments</label>
+                <textarea id="comments" name="Attendee Comments" placeholder="Type any additional notes or questions here..." rows="4" style="width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 4px; font-size: 16px; font-family: inherit;"></textarea>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" id="submitBtn">Submit</button>
+            </div>
+        </form>
+    </div>
+    <!-- Forces an accurate timestamp column to log instantly on submission -->
+    <input type="hidden" name="Timestamp" value="x-sheetmonkey-current-date-time">
+     <script>
+         window.addEventListener("load", () => {
+    const form = document.getElementById("conferenceForm");
+    const volunteerDropdown = document.getElementById("Volunteer");
+    const conditionalGroup = document.getElementById("conditionalInputGroup");
+    const otherInput = document.getElementById("otherVolunteerDetails");
+    const phoneInput = document.getElementById("phone");
+
+    const firstNameInput = document.getElementById("firstName");
+    const lastNameInput = document.getElementById("lastName");
+    const emailInput = document.getElementById("email");
+
+    const firstNameGroup = document.getElementById("firstNameGroup");
+    const lastNameGroup = document.getElementById("lastNameGroup");
+    const emailGroup = document.getElementById("emailGroup");
+    const phoneGroup = document.getElementById("phoneGroup");
+    const volunteerGroup = document.getElementById("volunteerGroup");
+
+    // 1. Dynamic Phone Number Auto-Formatter
+    phoneInput.addEventListener("input", (e) => {
+        let input = e.target.value.replace(/\D/g, "");
+        if (input.length > 10) input = input.substring(0, 10);
+
+        if (input.length > 6) {
+            e.target.value = `${input.substring(0, 3)}-${input.substring(3, 6)}-${input.substring(6)}`;
+        } else if (input.length > 3) {
+            e.target.value = `${input.substring(0, 3)}-${input.substring(3)}`;
+        } else {
+            e.target.value = input;
+        }
+    });
+
+    // 2. Dropdown Conditional Menu Watcher
+    volunteerDropdown.addEventListener("change", (event) => {
+        if (event.target.value === "other") {
+            conditionalGroup.removeAttribute("hidden");
+            otherInput.setAttribute("required", "true");
+            otherInput.focus();
+        } else {
+            conditionalGroup.setAttribute("hidden", "true");
+            otherInput.removeAttribute("required");
+            otherInput.value = "";
+            conditionalGroup.classList.remove("invalid");
+        }
+    });
+
+    // 3. Multi-Field Submission Validation Engine
+    form.addEventListener("submit", (event) => {
+        let isFormValid = true;
+
+        // Reset all error states cleanly on click
+        firstNameGroup.classList.remove("invalid");
+        lastNameGroup.classList.remove("invalid");
+        emailGroup.classList.remove("invalid");
+        phoneGroup.classList.remove("invalid");
+        volunteerGroup.classList.remove("invalid");
+        conditionalGroup.classList.remove("invalid");
+
+        // Validate First Name
+        if (firstNameInput.value.trim() === "") {
+            firstNameGroup.classList.add("invalid");
+            isFormValid = false;
+        }
+
+        // Validate Last Name
+        if (lastNameInput.value.trim() === "") {
+            lastNameGroup.classList.add("invalid");
+            isFormValid = false;
+        }
+
+        // Validate Contact Either/Or Requirement
+        if (emailInput.value.trim() === "" && phoneInput.value.trim() === "") {
+            emailGroup.classList.add("invalid");
+            phoneGroup.classList.add("invalid");
+            isFormValid = false;
+        }
+
+        // Validate Dropdown Selection
+        if (volunteerDropdown.value === "") {
+            volunteerGroup.classList.add("invalid");
+            isFormValid = false;
+        }
+
+        // Validate Hidden Box (Only if it is currently visible)
+        if (volunteerDropdown.value === "other" && otherInput.value.trim() === "") {
+            conditionalGroup.classList.add("invalid");
+            isFormValid = false;
+        }
+
+        // If any validation check fails, block the data from sending
+        if (!isFormValid) {
+            event.preventDefault();
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("registrationForm");
+  const phoneInput = document.getElementById("phone");
+
+  // 1. Dynamic Phone Number Auto-Formatter (###-###-####)
+  phoneInput.addEventListener("input", (e) => {
+    let input = e.target.value.replace(/\D/g, ""); // Strip non-numeric characters
+    if (input.length > 10) input = input.substring(0, 10); // Enforce max limit
+
+    // Apply visual structural hyphen boundaries
+    if (input.length > 6) {
+      e.target.value = `${input.substring(0, 3)}-${input.substring(3, 6)}-${input.substring(6)}`;
+    } else if (input.length > 3) {
+      e.target.value = `${input.substring(0, 3)}-${input.substring(3)}`;
+    } else {
+      e.target.value = input;
+    }
+  });
+
+  // 2. Interactive Form Submission & Validation Engine
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // Stop default browser page reloads
+    let isFormValid = true;
+
+    // Input Selector References
+    const fields = [
+      {
+        id: "firstName",
+        errorId: "firstNameError",
+        validator: (val) => val.trim() !== "",
+      },
+      {
+        id: "lastName",
+        errorId: "lastNameError",
+        validator: (val) => val.trim() !== "",
+      },
+      {
+        id: "phone",
+        errorId: "phoneError",
+        validator: (val) => val.replace(/\D/g, "").length === 10,
+      },
+      {
+        id: "email",
+        errorId: "emailError",
+        validator: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
+      },
+    ];
+
+    // Evaluate validation tests across all criteria
+    fields.forEach((field) => {
+      const inputEl = document.getElementById(field.id);
+      const parentGroup = inputEl.parentElement;
+
+      if (!field.validator(inputEl.value)) {
+        parentGroup.classList.add("invalid");
+        isFormValid = false;
+      } else {
+        parentGroup.classList.remove("invalid");
+      }
+    });
+
+    // 3. Execution Action Handler
+    if (isFormValid) {
+      alert("Sign-in successful! Welcome.");
+
+      // Collect payload parameters safely
+      const dataPayload = {
+        firstName: document.getElementById("firstName").value,
+        lastName: document.getElementById("lastName").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        agentName: document.getElementById("agentName").value,
+      };
+
+      console.log("Collected Check-in Payload Data:", dataPayload);
+      form.reset(); // Clear all form components cleanly
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const ticketDropdown = document.getElementById("Volunteer");
+  const conditionalGroup = document.getElementById("conditionalInputGroup");
+  const otherInput = document.getElementById("other");
+
+  // Make sure these elements actually exist on the page first
+  if (ticketDropdown && conditionalGroup && otherInput) {
+    ticketDropdown.addEventListener("change", (event) => {
+      // CRITICAL: This value must perfectly match the value attribute in your HTML
+      if (event.target.value === "other") {
+        conditionalGroup.hidden = false;
+        otherInput.setAttribute("required", "true");
+        otherInput.focus();
+      } else {
+        conditionalGroup.hidden = true;
+        otherInput.removeAttribute("required");
+        otherInput.value = "";
+      }
+    });
+  } else {
+    console.error("Form elements were not found! Check your HTML IDs.");
+  }
+});
+
+window.addEventListener("load", () => {
+    console.log("Form Debugger Success: All target components found. Attaching click watcher...");
+
+    // CRITICAL: You must define these elements inside the load event first!
+    const volunteerDropdown = document.getElementById("Volunteer");
+    const conditionalGroup = document.getElementById("conditionalInputGroup");
+
+    // Watch for selections inside the option menu list
+    if (volunteerDropdown && conditionalGroup) {
+        volunteerDropdown.addEventListener("change", (event) => {
+            console.log("User changed option selection to: ", event.target.value);
+            
+            if (event.target.value === "other") {
+                conditionalGroup.removeAttribute("hidden");
+                conditionalGroup.style.display = "block";
+                console.log("Action: Un-hiding the text box now.");
+            } else {
+                conditionalGroup.setAttribute("hidden", "true");
+                conditionalGroup.style.display = "none";
+            }
+        });
+    } else {
+        console.error("Could not find the dropdown or the conditional input box elements.");
+    }
+});
+
+
+window.addEventListener("load", () => {
+    const otherCheckbox = document.getElementById("otherCheckbox");
+    const conditionalGroup = document.getElementById("conditionalInputGroup");
+    const otherInput = document.getElementById("otherVolunteerDetails");
+
+    if (otherCheckbox && conditionalGroup && otherInput) {
+        // Watch for when the "Other" checkbox is checked or unchecked
+        otherCheckbox.addEventListener("change", (event) => {
+            if (event.target.checked) {
+                // Reveal the inline text box instantly
+                conditionalGroup.hidden = false;
+                
+                // Force it to be mandatory and snap cursor focus into it
+                otherInput.setAttribute("required", "true");
+                otherInput.focus();
+            } else {
+                // Hide it away cleanly if they uncheck the box
+                conditionalGroup.hidden = true;
+                otherInput.removeAttribute("required");
+                
+                // Clear out whatever they typed so it doesn't submit accidental data
+                otherInput.value = "";
+                conditionalGroup.classList.remove("invalid");
+            }
+        });
+    }
+});
+
+</script>
+</body>
+</html>
